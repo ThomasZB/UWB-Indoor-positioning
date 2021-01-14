@@ -233,7 +233,7 @@ void Tag_Measure_Dis(void)
         dwt_setrxtimeout(RESP_RX_TIMEOUT_UUS);
         /* Write frame data to DW1000 and prepare transmission. See NOTE 7 below. */
         tx_poll_msg[ALL_MSG_SN_IDX] = frame_seq_nb;
-        tx_poll_msg[ALL_MSG_TAG_IDX] = TAG_ID; // åŸºç«™æ”¶åˆ°æ ‡ç­¾çš„ä¿¡æ¯ï¼Œé‡Œé¢æœ‰TAG_ID,åœ¨åŸºç«™å›å¤æ ‡ç­¾çš„æ—¶å€™ï¼Œä¹Ÿéœ€è¦æŒ‡å®šTAG_ID,åªæœ‰TAG_IDä¸€è‡´æ‰åšå¤„ç†
+        tx_poll_msg[ALL_MSG_TAG_IDX] = TAG_ID;//»ùÕ¾ÊÕµ½±êÇ©µÄĞÅÏ¢£¬ÀïÃæÓĞTAG_ID,ÔÚ»ùÕ¾»Ø¸´±êÇ©µÄÊ±ºò£¬Ò²ĞèÒªÖ¸¶¨TAG_ID,Ö»ÓĞTAG_IDÒ»ÖÂ²Å×ö´¦Àí
 
         dwt_writetxdata(sizeof(tx_poll_msg), tx_poll_msg, 0);
         dwt_writetxfctrl(sizeof(tx_poll_msg), 0);
@@ -244,7 +244,7 @@ void Tag_Measure_Dis(void)
 
         //GPIO_SetBits(GPIOA,GPIO_Pin_2);
         //TODO
-        dwt_rxenable(0);// è¿™ä¸ªååŠ çš„ï¼Œé»˜è®¤txååº”è¯¥è‡ªåŠ¨åˆ‡æ¢rxï¼Œä½†æ˜¯ç›®å‰debug å‘ç°å¹¶æ²¡æœ‰è‡ªåŠ¨æ‰“å¼€ï¼Œè¿™é‡Œå¼ºåˆ¶æ‰“å¼€rx
+        dwt_rxenable(0);//Õâ¸öºó¼ÓµÄ£¬Ä¬ÈÏtxºóÓ¦¸Ã×Ô¶¯ÇĞ»»rx£¬µ«ÊÇÄ¿Ç°debug ·¢ÏÖ²¢Ã»ÓĞ×Ô¶¯´ò¿ª£¬ÕâÀïÇ¿ÖÆ´ò¿ªrx
         uint32 tick1 = portGetTickCount();
         /* We assume that the transmission is achieved correctly, poll for reception of a frame or error/timeout. See NOTE 8 below. */
         while(!((status_reg = dwt_read32bitreg(SYS_STATUS_ID)) & (SYS_STATUS_RXFCG | SYS_STATUS_ALL_RX_ERR)))
@@ -269,7 +269,7 @@ void Tag_Measure_Dis(void)
                 dwt_readrxdata(rx_buffer, frame_len, 0);
             }
 
-            if(rx_buffer[ALL_MSG_TAG_IDX] != TAG_ID)//æ£€æµ‹TAG_ID
+            if(rx_buffer[ALL_MSG_TAG_IDX] != TAG_ID)//¼ì²âTAG_ID
                 continue;
             rx_buffer[ALL_MSG_TAG_IDX] = 0;
 
@@ -840,7 +840,7 @@ void assert_failed(uint8_t* file, uint32_t line)
 PUTCHAR_PROTOTYPE
 {
     /* Place your implementation of fputc here */
-    /* æ¸…SRå¯„å­˜å™¨ä¸­çš„TCæ ‡å¿— */
+    /* ÇåSR¼Ä´æÆ÷ÖĞµÄTC±êÖ¾ */
 
     USART_ClearFlag(EVAL_COM1, USART_FLAG_TC);
     /* e.g. write a character to the USART */

@@ -30,7 +30,7 @@ I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D783BB4
 I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D783BB4)
-F (..\main.c)(0x5FFED9D7)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\ -I ..\..\..\Libraries\CMSIS\CM3\CoreSupport -I ..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I ..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\..\Utilities\STM32_EVAL -I ..\..\..\Utilities\STM32_EVAL\Common -I ..\..\..\Utilities\STM32_EVAL\STM3210E_EVAL -I ..\platform -I ..\decadriver -I ..\trilateration -I ..\kalman -I ..\at24c16 -I .\LIB-I.\RTE\_ds_twr_init-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210E_EVAL-o .\stm3210e-eval\main.o --omf_browse .\stm3210e-eval\main.crf --depend .\stm3210e-eval\main.d)
+F (..\main.c)(0x600036BA)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\ -I ..\..\..\Libraries\CMSIS\CM3\CoreSupport -I ..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I ..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\..\Utilities\STM32_EVAL -I ..\..\..\Utilities\STM32_EVAL\Common -I ..\..\..\Utilities\STM32_EVAL\STM3210E_EVAL -I ..\platform -I ..\decadriver -I ..\trilateration -I ..\kalman -I ..\at24c16 -I .\LIB-I.\RTE\_ds_twr_init-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210E_EVAL-o .\stm3210e-eval\main.o --omf_browse .\stm3210e-eval\main.crf --depend .\stm3210e-eval\main.d)
 I (..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x5E99454C)
 I (..\..\..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC775FC)
@@ -61,7 +61,7 @@ I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x4D783BB
 I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D783BB4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5EC775FC)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5EC77604)
-I (..\decadriver\deca_device_api.h)(0x5DA824DE)
+I (..\decadriver\deca_device_api.h)(0x5FFEF300)
 I (..\decadriver\deca_regs.h)(0x5ECF800D)
 I (..\decadriver\deca_version.h)(0x56606AD3)
 I (..\platform\deca_sleep.h)(0x56A39157)
@@ -1054,7 +1054,7 @@ F (..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_s
 F (..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f10x_hd_vl.s)(0x4D783CDA)()
 F (.\readme.txt)(0x4D99A59E)()
 F (..\platform\deca_mutex.c)(0x5645FF12)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\ -I ..\..\..\Libraries\CMSIS\CM3\CoreSupport -I ..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I ..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\..\Utilities\STM32_EVAL -I ..\..\..\Utilities\STM32_EVAL\Common -I ..\..\..\Utilities\STM32_EVAL\STM3210E_EVAL -I ..\platform -I ..\decadriver -I ..\trilateration -I ..\kalman -I ..\at24c16 -I .\LIB-I.\RTE\_ds_twr_init-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210E_EVAL-o .\stm3210e-eval\deca_mutex.o --omf_browse .\stm3210e-eval\deca_mutex.crf --depend .\stm3210e-eval\deca_mutex.d)
-I (..\decadriver\deca_device_api.h)(0x5DA824DE)
+I (..\decadriver\deca_device_api.h)(0x5FFEF300)
 I (..\platform\port.h)(0x5C394E37)
 I (..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x5E99454C)
 I (..\..\..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D523B58)
@@ -1148,7 +1148,7 @@ I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D783BB4
 I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D783BB4)
-I (..\decadriver\deca_device_api.h)(0x5DA824DE)
+I (..\decadriver\deca_device_api.h)(0x5FFEF300)
 I (..\platform\port.h)(0x5C394E37)
 F (..\platform\lcd.c)(0x564F52A2)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\ -I ..\..\..\Libraries\CMSIS\CM3\CoreSupport -I ..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I ..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\..\Utilities\STM32_EVAL -I ..\..\..\Utilities\STM32_EVAL\Common -I ..\..\..\Utilities\STM32_EVAL\STM3210E_EVAL -I ..\platform -I ..\decadriver -I ..\trilateration -I ..\kalman -I ..\at24c16 -I .\LIB-I.\RTE\_ds_twr_init-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210E_EVAL-o .\stm3210e-eval\lcd.o --omf_browse .\stm3210e-eval\lcd.crf --depend .\stm3210e-eval\lcd.d)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5EC77604)
@@ -1253,12 +1253,12 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5EC775FC)
 I (..\platform\lcd_oledfont.h)(0x53649F68)
 I (..\platform\deca_sleep.h)(0x56A39157)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5EC77604)
-F (..\decadriver\deca_device.c)(0x5EDB696D)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\ -I ..\..\..\Libraries\CMSIS\CM3\CoreSupport -I ..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I ..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\..\Utilities\STM32_EVAL -I ..\..\..\Utilities\STM32_EVAL\Common -I ..\..\..\Utilities\STM32_EVAL\STM3210E_EVAL -I ..\platform -I ..\decadriver -I ..\trilateration -I ..\kalman -I ..\at24c16 -I .\LIB-I.\RTE\_ds_twr_init-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210E_EVAL-o .\stm3210e-eval\deca_device.o --omf_browse .\stm3210e-eval\deca_device.crf --depend .\stm3210e-eval\deca_device.d)
+F (..\decadriver\deca_device.c)(0x60003618)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\ -I ..\..\..\Libraries\CMSIS\CM3\CoreSupport -I ..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I ..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\..\Utilities\STM32_EVAL -I ..\..\..\Utilities\STM32_EVAL\Common -I ..\..\..\Utilities\STM32_EVAL\STM3210E_EVAL -I ..\platform -I ..\decadriver -I ..\trilateration -I ..\kalman -I ..\at24c16 -I .\LIB-I.\RTE\_ds_twr_init-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210E_EVAL-o .\stm3210e-eval\deca_device.o --omf_browse .\stm3210e-eval\deca_device.crf --depend .\stm3210e-eval\deca_device.d)
 I (..\decadriver\deca_types.h)(0x56A249BC)
 I (..\decadriver\deca_param_types.h)(0x56606460)
 I (..\decadriver\deca_regs.h)(0x5ECF800D)
 I (..\decadriver\deca_version.h)(0x56606AD3)
-I (..\decadriver\deca_device_api.h)(0x5DA824DE)
+I (..\decadriver\deca_device_api.h)(0x5FFEF300)
 I (..\platform\deca_sleep.h)(0x56A39157)
 I (..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x5E99454C)
 I (..\..\..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D523B58)
@@ -1294,13 +1294,13 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5EC775FC)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5EC775FC)
 I (..\decadriver\deca_regs.h)(0x5ECF800D)
 I (..\decadriver\deca_version.h)(0x56606AD3)
-I (..\decadriver\deca_device_api.h)(0x5DA824DE)
+I (..\decadriver\deca_device_api.h)(0x5FFEF300)
 I (..\decadriver\deca_param_types.h)(0x56606460)
 I (..\decadriver\deca_types.h)(0x56A249BC)
 F (..\decadriver\deca_range_tables.c)(0x5C395698)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\ -I ..\..\..\Libraries\CMSIS\CM3\CoreSupport -I ..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I ..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\..\Utilities\STM32_EVAL -I ..\..\..\Utilities\STM32_EVAL\Common -I ..\..\..\Utilities\STM32_EVAL\STM3210E_EVAL -I ..\platform -I ..\decadriver -I ..\trilateration -I ..\kalman -I ..\at24c16 -I .\LIB-I.\RTE\_ds_twr_init-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210E_EVAL-o .\stm3210e-eval\deca_range_tables.o --omf_browse .\stm3210e-eval\deca_range_tables.crf --depend .\stm3210e-eval\deca_range_tables.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5EC775FC)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5EC775FC)
-I (..\decadriver\deca_device_api.h)(0x5DA824DE)
+I (..\decadriver\deca_device_api.h)(0x5FFEF300)
 I (..\decadriver\deca_param_types.h)(0x56606460)
 I (..\decadriver\deca_types.h)(0x56A249BC)
 F (..\trilateration\trilateration.c)(0x5F8707D0)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\ -I ..\..\..\Libraries\CMSIS\CM3\CoreSupport -I ..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I ..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I ..\..\..\Utilities\STM32_EVAL -I ..\..\..\Utilities\STM32_EVAL\Common -I ..\..\..\Utilities\STM32_EVAL\STM3210E_EVAL -I ..\platform -I ..\decadriver -I ..\trilateration -I ..\kalman -I ..\at24c16 -I .\LIB-I.\RTE\_ds_twr_init-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210E_EVAL-o .\stm3210e-eval\trilateration.o --omf_browse .\stm3210e-eval\trilateration.crf --depend .\stm3210e-eval\trilateration.d)

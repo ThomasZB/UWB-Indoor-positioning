@@ -27,6 +27,10 @@ Project File Date:  10/14/2020
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'ds_twr_init'
+compiling deca_params_init.c...
+compiling deca_range_tables.c...
+compiling deca_mutex.c...
+compiling deca_spi.c...
 compiling main.c...
 ..\main.c(92): warning:  #177-D: variable "buff"  was declared but never referenced
       uint8 buff[5];
@@ -34,11 +38,11 @@ compiling main.c...
       int cnt ;
 ..\main.c(228): warning:  #177-D: variable "final_distance"  was declared but never referenced
       float final_distance = 0;
-..\main.c(477): warning:  #223-D: function "FLASH_ReadMoreData" declared implicitly
+..\main.c(475): warning:  #223-D: function "FLASH_ReadMoreData" declared implicitly
       FLASH_ReadMoreData(USER_FLASH_BASE, buff, 3);
-..\main.c(495): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\main.c(493): warning:  #186-D: pointless comparison of unsigned integer with zero
           if(buff[1] >= 0 && buff[1] <= 255)
-..\main.c(520): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\main.c(518): warning:  #186-D: pointless comparison of unsigned integer with zero
           if(buff[1] >= 0 && buff[1] <= 255)
 ..\main.c(410): warning:  #177-D: variable "anthor_index"  was declared but never referenced
       uint8 anthor_index = 0;
@@ -50,21 +54,31 @@ compiling main.c...
       uint8 Waiting_TAG_Release_Semaphore = 0;
 ..\main.c(415): warning:  #177-D: variable "frame_len"  was declared but never referenced
       int8 frame_len = 0;
-..\main.c(472): warning:  #177-D: variable "rx_ant_delay"  was declared but never referenced
+..\main.c(470): warning:  #177-D: variable "rx_ant_delay"  was declared but never referenced
       int rx_ant_delay = 32880;
-..\main.c(473): warning:  #177-D: variable "index"  was declared but never referenced
+..\main.c(471): warning:  #177-D: variable "index"  was declared but never referenced
       int index = 0 ;
-..\main.c(647): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+..\main.c(645): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
           OLED_ShowString(0, 2, dist_str);
-..\main.c(656): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+..\main.c(654): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
           OLED_ShowString(0, 4, dist_str);
-..\main.c(680): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+..\main.c(678): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
           OLED_ShowString(0, 6, dist_str);
 ..\main.c: 16 warnings, 0 errors
+compiling deca_device.c...
+..\decadriver\deca_device.c(1106): warning:  #68-D: integer conversion resulted in a change of sign
+      uint32  regval = DWT_ERROR ;
+..\decadriver\deca_device.c(1138): warning:  #68-D: integer conversion resulted in a change of sign
+      uint16  regval = DWT_ERROR ;
+..\decadriver\deca_device.c(1452): warning:  #68-D: integer conversion resulted in a change of sign
+          return DWT_ERROR;
+..\decadriver\deca_device.c(1586): warning:  #68-D: integer conversion resulted in a change of sign
+          return DWT_ERROR;
+..\decadriver\deca_device.c: 4 warnings, 0 errors
 linking...
 Program Size: Code=23708 RO-data=3212 RW-data=1060 ZI-data=3756  
 FromELF: creating hex file...
-".\STM3210E-EVAL\STM3210E-EVAL.axf" - 0 Error(s), 16 Warning(s).
+".\STM3210E-EVAL\STM3210E-EVAL.axf" - 0 Error(s), 20 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -87,7 +101,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.1.1
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

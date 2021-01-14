@@ -31,15 +31,15 @@
 
 // -------------------------------------------------------------------------------------------------------------------
 //
-// Internal functions for controlling and configuring the device
+// 用于控制和配置设备的内部功能
 //
 // -------------------------------------------------------------------------------------------------------------------
 
-// Enable and Configure specified clocks
+// 启用和配置指定的时钟
 void _dwt_enableclocks(int clocks) ;
-// Configure the ucode (FP algorithm) parameters
+// 配置ucode（FP算法）参数
 void _dwt_configlde(int prf);
-// Load ucode from OTP/ROM
+// 从OTP/ROM加载 ucode
 void _dwt_loaducodefromrom(void);
 // Read non-volatile memory
 uint32 _dwt_otpread(uint32 address);
@@ -50,7 +50,7 @@ void _dwt_aonarrayupload(void);
 // -------------------------------------------------------------------------------------------------------------------
 
 /*!
- * Static data for DW1000 DecaWave Transceiver control
+ * DecaWave DW1000 收发器控制的静态数据
  */
 
 // -------------------------------------------------------------------------------------------------------------------
@@ -83,33 +83,33 @@ static dwt_local_data_t dw1000local ; // 本地静态数据
 
 /*! ------------------------------------------------------------------------------------------------------------------
  * @fn dwt_initialise()
- *
+ * @简述：这个函数初始化与DW1000的通信，并读取设备ID寄存器验证芯片支持该软件。
+ * 然后它只初始化一次设备必须的配置和设备的低级驱动程序的静态数据
  * @brief This function initiates communications with the DW1000 transceiver
  * and reads its DEV_ID register (address 0x00) to verify the IC is one supported
  * by this software (e.g. DW1000 32-bit device ID value is 0xDECA0130).  Then it
  * does any initial once only device configurations needed for use and initialises
  * as necessary any static data items belonging to this low-level driver.
  *
- * NOTES:
- * 1.this function needs to be run before dwt_configuresleep, also the SPI frequency has to be < 3MHz
- * 2.it also reads and applies LDO tune and crystal trim values from OTP memory
+ * 注意：
+ * 1.这个函数必须再 dwt_configuresleep 函数前使用, 而且SPI的频率必须小于3MHz
+ * 2.它还从OPT存储器读取并应用LDO调谐和晶振调整值
  *
- * input parameters
- * @param config    -   specifies what configuration to load
+ * 输入参数
+ * @param config    -   指定要加载的配置
  *                  DWT_LOADUCODE     0x1 - load the LDE microcode from ROM - enabled accurate RX timestamp
  *                  DWT_LOADNONE      0x0 - do not load any values from OTP memory
  *
- * output parameters
- *
- * returns DWT_SUCCESS for success, or DWT_ERROR for error
+ * 输出参数
+ * 成功返回 DWT_SUCCESS，失败返回 DWT_ERROR
  */
 // OTP addresses definitions
-#define LDOTUNE_ADDRESS (0x04)
-#define PARTID_ADDRESS (0x06)
-#define LOTID_ADDRESS  (0x07)
-#define VBAT_ADDRESS   (0x08)
-#define VTEMP_ADDRESS  (0x09)
-#define XTRIM_ADDRESS  (0x1E)
+#define LDOTUNE_ADDRESS	(0x04)
+#define PARTID_ADDRESS	(0x06)
+#define LOTID_ADDRESS	(0x07)
+#define VBAT_ADDRESS	(0x08)
+#define VTEMP_ADDRESS	(0x09)
+#define XTRIM_ADDRESS	(0x1E)
 
 int dwt_initialise(uint16 config)
 {
@@ -138,7 +138,7 @@ int dwt_initialise(uint16 config)
 	// 配置CPLL锁定检测
 	dwt_writetodevice(EXT_SYNC_ID, EC_CTRL_OFFSET, 1, &plllockdetect);
 
-	// Read OTP revision number
+	// 读取OTP版本号
 	otp_addr = _dwt_otpread(XTRIM_ADDRESS) & 0xffff;        // Read 32 bit value, XTAL trim val is in low octet-0 (5 bits)
 	dw1000local.otprev = (otp_addr >> 8) & 0xff;			// OTP revision is next byte
 
