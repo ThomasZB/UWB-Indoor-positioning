@@ -66,7 +66,7 @@ static uint8 Master_Release_Semaphore_comfirm[] =    {0x41, 0x88, 0, 0x0, 0xDE, 
 	
 /* Length of the common part of the message (up to and including the function code, see NOTE 2 below). */
 #define ALL_MSG_COMMON_LEN 10
-/* Index to access some of the fields in the frames involved in the process. */
+/* 索引以访问过程中涉及的帧中的某些字段。*/
 #define ALL_MSG_SN_IDX 2
 #define ALL_MSG_TAG_IDX 3
 #define FINAL_MSG_POLL_TX_TS_IDX 10

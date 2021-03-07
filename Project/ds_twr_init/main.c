@@ -221,25 +221,28 @@ int Sum_Tag_Semaphore_request(void)
     return sum_request;
 }
 
-
+// 标签测距
 void Tag_Measure_Dis(void)
 {
     uint8 dest_anthor = 0, frame_len = 0;
     float final_distance = 0;
     frame_seq_nb = 0; //change by johhn
-    for(dest_anthor = 0 ;  dest_anthor < ANCHOR_MAX_NUM; dest_anthor++)
+    for(dest_anthor = 0 ;  dest_anthor < ANCHOR_MAX_NUM; dest_anthor++)	// 寻找符合条件的目标标签
     {
+		/* 设置发送帧输入参数后开启延迟时间 */
         dwt_setrxaftertxdelay(POLL_TX_TO_RESP_RX_DLY_UUS);
+		/* 设置超时时间（大概是这个意思） */
         dwt_setrxtimeout(RESP_RX_TIMEOUT_UUS);
-        /* Write frame data to DW1000 and prepare transmission. See NOTE 7 below. */
+        /* 将帧数据写入DW1000并准备传输。See NOTE 7 below. */
         tx_poll_msg[ALL_MSG_SN_IDX] = frame_seq_nb;
-        tx_poll_msg[ALL_MSG_TAG_IDX] = TAG_ID; // 基站收到标签的信息，里面有TAG_ID,在基站回复标签的时候，也需要指定TAG_ID,只有TAG_ID一致才做处理
+        tx_poll_msg[ALL_MSG_TAG_IDX] = TAG_ID; // 基站收到标签的信息，里面有TAG_ID,在基站回复标签的时候，也需要指定TAG_ID,只有TAG_ID一致才做处理（一开始就加载了进来）
 
+		/* 将数据写入DW1000的TX缓冲区，等待发送 */
         dwt_writetxdata(sizeof(tx_poll_msg), tx_poll_msg, 0);
+		/* 配置发送寄存器 */
         dwt_writetxfctrl(sizeof(tx_poll_msg), 0);
 
-        /* Start transmission, indicating that a response is expected so that reception is enabled automatically after the frame is sent and the delay
-         * set by dwt_setrxaftertxdelay() has elapsed. */
+		/* 开始传输，表示期望响应，因此在发送帧并经过dwt_setrxaftertxdelay()延迟后会自动启用接收 */
         dwt_starttx(DWT_START_TX_IMMEDIATE | DWT_RESPONSE_EXPECTED);
 
         //GPIO_SetBits(GPIOA,GPIO_Pin_2);
@@ -247,6 +250,7 @@ void Tag_Measure_Dis(void)
         dwt_rxenable(0);// 这个后加的，默认tx后应该自动切换rx，但是目前debug 发现并没有自动打开，这里强制打开rx
         uint32 tick1 = portGetTickCount();
         /* We assume that the transmission is achieved correctly, poll for reception of a frame or error/timeout. See NOTE 8 below. */
+		/* 我们假设传输正确完成，轮询一个帧的接收或错误/超时 */
         while(!((status_reg = dwt_read32bitreg(SYS_STATUS_ID)) & (SYS_STATUS_RXFCG | SYS_STATUS_ALL_RX_ERR)))
         {
             if((portGetTickCount() - tick1) > 350)
@@ -260,9 +264,10 @@ void Tag_Measure_Dis(void)
         if(status_reg & SYS_STATUS_RXFCG)
         {
             /* Clear good RX frame event and TX frame sent in the DW1000 status register. */
+			/* 清除DW1000状态寄存器中发送的良好RX帧事件和TX帧。 */
             dwt_write32bitreg(SYS_STATUS_ID, SYS_STATUS_RXFCG | SYS_STATUS_TXFRS);
 
-            /* A frame has been received, read it into the local buffer. */
+            /* 接收到一个帧，将其读入本地缓冲区 */
             frame_len = dwt_read32bitreg(RX_FINFO_ID) & RX_FINFO_RXFLEN_MASK;
             if(frame_len <= RX_BUF_LEN)
             {
@@ -270,33 +275,36 @@ void Tag_Measure_Dis(void)
             }
 
             if(rx_buffer[ALL_MSG_TAG_IDX] != TAG_ID)//检测TAG_ID
+			{
                 continue;
+			}
             rx_buffer[ALL_MSG_TAG_IDX] = 0;
 
-            /* As the sequence number field of the frame is not relevant, it is cleared to simplify the validation of the frame. */
+            /* 由于帧的序列号字段无关紧要，因此将其清除以简化帧的验证 */
             rx_buffer[ALL_MSG_SN_IDX] = 0;
 
             if(memcmp(rx_buffer, rx_resp_msg, ALL_MSG_COMMON_LEN) == 0)
             {
                 uint32 final_tx_time;
 
-                /* Retrieve poll transmission and response reception timestamp. */
+				/* 检索轮询发送和响应接收时间戳 */
                 poll_tx_ts = get_tx_timestamp_u64();
                 resp_rx_ts = get_rx_timestamp_u64();
 
                 /* Compute final message transmission time. See NOTE 9 below. */
+				/* 计算最终传输时间 */
                 final_tx_time = (resp_rx_ts + (RESP_RX_TO_FINAL_TX_DLY_UUS * UUS_TO_DWT_TIME)) >> 8;
                 dwt_setdelayedtrxtime(final_tx_time);
 
-                /* Final TX timestamp is the transmission time we programmed plus the TX antenna delay. */
+				/* 最终时间戳是我们设定的传输时刻加上传输时延 */
                 final_tx_ts = (((uint64)(final_tx_time & 0xFFFFFFFE)) << 8) + TX_ANT_DLY;
 
-                /* Write all timestamps in the final message. See NOTE 10 below. */
+                /* 将所有时间戳记写在最后一条消息中 See NOTE 10 below. */
                 final_msg_set_ts(&tx_final_msg[FINAL_MSG_POLL_TX_TS_IDX], poll_tx_ts);
                 final_msg_set_ts(&tx_final_msg[FINAL_MSG_RESP_RX_TS_IDX], resp_rx_ts);
                 final_msg_set_ts(&tx_final_msg[FINAL_MSG_FINAL_TX_TS_IDX], final_tx_ts);
 
-                /* Write and send final message. See NOTE 7 below. */
+                /* 编写并发送最终消息。See NOTE 7 below. */
                 tx_final_msg[ALL_MSG_SN_IDX] = frame_seq_nb;
                 tx_final_msg[ALL_MSG_TAG_IDX] = TAG_ID;
                 dwt_writetxdata(sizeof(tx_final_msg), tx_final_msg, 0);
@@ -633,6 +641,7 @@ static void distance_mange(void)
         {
             sprintf(dist_str, "an%d:%3.2fm", j, (float)Anthordistance[j] / 1000);
             printf("%s\r\n", dist_str);
+			printf("hhhhh\r\n"); 
         }
 
     }

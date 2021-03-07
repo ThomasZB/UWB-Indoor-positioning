@@ -3,7 +3,7 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: ÂµVision V5.31.0.0
+IDE-Version: ¦ÌVision V5.31.0.0
 Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
 License Information: CH Thomas, CQUPT, LIC=V85FJ-U9MXQ-17ARR-K0GLM-A3NT2-R3ML9
  
@@ -27,10 +27,6 @@ Project File Date:  10/14/2020
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'ds_twr_init'
-compiling deca_params_init.c...
-compiling deca_range_tables.c...
-compiling deca_mutex.c...
-compiling deca_spi.c...
 compiling main.c...
 ..\main.c(92): warning:  #177-D: variable "buff"  was declared but never referenced
       uint8 buff[5];
@@ -38,47 +34,37 @@ compiling main.c...
       int cnt ;
 ..\main.c(228): warning:  #177-D: variable "final_distance"  was declared but never referenced
       float final_distance = 0;
-..\main.c(475): warning:  #223-D: function "FLASH_ReadMoreData" declared implicitly
+..\main.c(483): warning:  #223-D: function "FLASH_ReadMoreData" declared implicitly
       FLASH_ReadMoreData(USER_FLASH_BASE, buff, 3);
-..\main.c(493): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\main.c(502): warning:  #186-D: pointless comparison of unsigned integer with zero
           if(buff[1] >= 0 && buff[1] <= 255)
-..\main.c(518): warning:  #186-D: pointless comparison of unsigned integer with zero
+..\main.c(525): warning:  #186-D: pointless comparison of unsigned integer with zero
           if(buff[1] >= 0 && buff[1] <= 255)
-..\main.c(410): warning:  #177-D: variable "anthor_index"  was declared but never referenced
+..\main.c(418): warning:  #177-D: variable "anthor_index"  was declared but never referenced
       uint8 anthor_index = 0;
-..\main.c(411): warning:  #177-D: variable "tag_index"  was declared but never referenced
+..\main.c(419): warning:  #177-D: variable "tag_index"  was declared but never referenced
       uint8 tag_index = 0;
-..\main.c(413): warning:  #550-D: variable "Semaphore_Enable"  was set but never used
+..\main.c(421): warning:  #550-D: variable "Semaphore_Enable"  was set but never used
       uint8 Semaphore_Enable = 0 ;
-..\main.c(414): warning:  #550-D: variable "Waiting_TAG_Release_Semaphore"  was set but never used
+..\main.c(422): warning:  #550-D: variable "Waiting_TAG_Release_Semaphore"  was set but never used
       uint8 Waiting_TAG_Release_Semaphore = 0;
-..\main.c(415): warning:  #177-D: variable "frame_len"  was declared but never referenced
+..\main.c(423): warning:  #177-D: variable "frame_len"  was declared but never referenced
       int8 frame_len = 0;
-..\main.c(470): warning:  #177-D: variable "rx_ant_delay"  was declared but never referenced
+..\main.c(478): warning:  #177-D: variable "rx_ant_delay"  was declared but never referenced
       int rx_ant_delay = 32880;
-..\main.c(471): warning:  #177-D: variable "index"  was declared but never referenced
+..\main.c(479): warning:  #177-D: variable "index"  was declared but never referenced
       int index = 0 ;
-..\main.c(645): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+..\main.c(653): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
           OLED_ShowString(0, 2, dist_str);
-..\main.c(654): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+..\main.c(662): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
           OLED_ShowString(0, 4, dist_str);
-..\main.c(678): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+..\main.c(686): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
           OLED_ShowString(0, 6, dist_str);
 ..\main.c: 16 warnings, 0 errors
-compiling deca_device.c...
-..\decadriver\deca_device.c(1106): warning:  #68-D: integer conversion resulted in a change of sign
-      uint32  regval = DWT_ERROR ;
-..\decadriver\deca_device.c(1138): warning:  #68-D: integer conversion resulted in a change of sign
-      uint16  regval = DWT_ERROR ;
-..\decadriver\deca_device.c(1452): warning:  #68-D: integer conversion resulted in a change of sign
-          return DWT_ERROR;
-..\decadriver\deca_device.c(1586): warning:  #68-D: integer conversion resulted in a change of sign
-          return DWT_ERROR;
-..\decadriver\deca_device.c: 4 warnings, 0 errors
 linking...
-Program Size: Code=23708 RO-data=3212 RW-data=1060 ZI-data=3756  
+Program Size: Code=23720 RO-data=3208 RW-data=1060 ZI-data=3756  
 FromELF: creating hex file...
-".\STM3210E-EVAL\STM3210E-EVAL.axf" - 0 Error(s), 20 Warning(s).
+".\STM3210E-EVAL\STM3210E-EVAL.axf" - 0 Error(s), 16 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -101,7 +87,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.1.1
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
